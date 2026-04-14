@@ -1,23 +1,30 @@
 package Model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Game {
-    private List<Move> Moves;
-    private List<Player> Player;
+    private List<Move> moves;
+    private List<Player> players;
     private List<WinningStrategy> winningStrategy;
-    private Board Board;
+    private Board board;
+    private GameStatus gameStatus;
+    private Player winner;
 
-    public Game(){
-
+    public Game(int dimension, List<Player> players, List<WinningStrategy> winningStrategy){
+        this.moves = new ArrayList<>();
+        this.board = new Board(dimension);
+        this.players=players;
+        this.winningStrategy=winningStrategy;
+        this.gameStatus=GameStatus.IN_PROGRESS;
     }
 
     public void setMoves(List<Move> moves) {
-        Moves = moves;
+        this.moves = moves;
     }
 
-    public void setPlayer(List<Player> player) {
-        Player = player;
+    public void setPlayers(List<Player> players) {
+        this.players = players;
     }
 
     public void setWinningStrategy(List<WinningStrategy> winningStrategy) {
@@ -25,15 +32,31 @@ public class Game {
     }
 
     public void setBoard(Board board) {
-        Board = board;
+        this.board = board;
+    }
+
+    public void setGameStatus(GameStatus gameStatus) {
+        this.gameStatus = gameStatus;
     }
 
     public void setWinner(Player winner) {
         this.winner = winner;
     }
 
-    public void setGameStatus(GameStatus gameStatus) {
-        this.gameStatus = gameStatus;
+    public List<Move> getMoves() {
+        return moves;
+    }
+
+    public List<Player> getPlayers() {
+        return players;
+    }
+
+    public List<WinningStrategy> getWinningStrategy() {
+        return winningStrategy;
+    }
+
+    public Board getBoard() {
+        return board;
     }
 
     public GameStatus getGameStatus() {
@@ -43,23 +66,4 @@ public class Game {
     public Player getWinner() {
         return winner;
     }
-
-    public List<WinningStrategy> getWinningStrategy() {
-        return winningStrategy;
-    }
-
-    public List<Player> getPlayer() {
-        return Player;
-    }
-
-    public List<Move> getMoves() {
-        return Moves;
-    }
-
-    public Board getBoard() {
-        return Board;
-    }
-
-    private Player winner;
-    private GameStatus gameStatus;
 }

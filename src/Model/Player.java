@@ -1,4 +1,37 @@
 package Model;
 
 public class Player {
+    private Symbol symbol;
+    private String name;
+    private PlayerType playerType;
+
+    public Player(Symbol symbol, String name, PlayerType playerType) {
+        this.symbol = symbol;
+        this.name = name;
+        this.playerType = playerType;
+    }
+
+    public Symbol getSymbol() {
+        return symbol;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public PlayerType getPlayerType() {
+        return playerType;
+    }
+
+    public void setSymbol(Symbol symbol) {
+        this.symbol = symbol;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPlayerType(PlayerType playerType) {
+        this.playerType = playerType;
+    }
 }
